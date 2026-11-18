@@ -1,0 +1,22 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.5.1
+torchvision==0.20.1
+timm>=1.0.11
+transformers>=4.45.1,<5
+datasets>=3.1.0
+opencv-python-headless
+shapely>=2.0.6
+openai-clip>=1.0.1
+lmdb>=1.5.1
+easydict>=1.13
+scipy
+numpy
+pytorch-lightning>=2.4.0
+torchmetrics>=1.5.1
+nltk
+pydantic>=2
+matplotlib
+requests
+fastapi==0.115.6
+uvicorn[standard]==0.32.1
+python-multipart==0.0.20

@@ -1,0 +1,24 @@
+# Roadmap
+
+- [x] Fix read-aloud on iPhone (tap-triggered, voice loading, no overlap, clear messages)
+- [x] Home: use the user's illustration as the artwork
+- [x] Home: slogan directly below the illustration
+- [x] Result: review/edit Kannada text, confirm to translate the corrected text, keep the original
+- [x] Kannada Unicode handling (NFC, no conversions) + tests
+- [x] Privacy reminder near upload + photo-quality hints for gallery photos
+- [x] Verify flows (home, upload, OCR, edit, translate, speech, history) on phone + desktop
+- [x] Free on-device Kannada OCR (Tesseract.js), no AI credits in the normal scan flow
+- [x] Free on-device pronunciation (transliteration) so results need no AI
+- [x] Translation only on an explicit, clearly labelled tap (uses AI credits)
+- [x] Read-aloud uses device voices only; clear message when no Kannada voice
+- [x] Remove unused credit-spending endpoints (image reading, online voice)
+- [x] Update privacy wording (photos now read on the device)
+- [x] Test: upload, OCR, display, read-aloud, failures, no AI gateway calls
+- [ ] Publish the app (not published yet; README points at a live URL that does not exist)
+- [x] Result: drop junk blocks read from a sign's border/frame (stray single letters and edge marks removed)
+- [x] OCR accuracy pass: measured engines + filters, single-block reading + upscaling (CER 33% → 12% on 30 test images)
+- [ ] Re-measure on real street photos (the earlier five photos were not saved)
+- [ ] Home: fix React hydration warning on the hidden gallery file input (caret-color style)
+- [x] Street-sign reader: IndicPhotoOCR server (ocr-server/) + app connection with on-device fallback
+- [x] Benchmark on IndicSTR12 Kannada test set (270 real scene words)
+- [ ] Put the street-sign reader online on the user's free Hugging Face Space (needs the user to create the Space)

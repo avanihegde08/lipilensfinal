@@ -1,0 +1,254 @@
+/*
+ * Tailwind v4 entry: config lives here, with no tailwind.config.js or PostCSS plugin.
+ * Keep every @import in this top block. Web fonts load via <link> in src/routes/__root.tsx.
+ */
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Lipi Lens design system — Kannada-flag yellow & red on warm cream.
+ * All colors are oklch. Register new tokens in @theme inline.
+ */
+
+@theme inline {
+  --font-display: "Baloo Tamma 2", "Poppins", system-ui, sans-serif;
+  --font-sans: "Poppins", system-ui, sans-serif;
+  --font-kannada: "Noto Sans Kannada", "Baloo Tamma 2", sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-maroon: var(--maroon);
+  --color-marigold: var(--marigold);
+  --color-turmeric: var(--turmeric);
+  --color-kumkuma: var(--kumkuma);
+  --color-translit: var(--translit);
+  --color-layer-kannada: var(--layer-kannada);
+  --color-layer-translit: var(--layer-translit);
+  --color-layer-english: var(--layer-english);
+  --color-viewfinder: var(--viewfinder);
+  --color-viewfinder-foreground: var(--viewfinder-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  --shadow-soft: var(--shadow-soft-value);
+  --shadow-lift: var(--shadow-lift-value);
+  --shadow-fab: var(--shadow-fab-value);
+
+  --animate-scan-beam: scan-beam 2.2s ease-in-out infinite;
+  --animate-float-letter: float-letter 3.6s ease-in-out infinite;
+  --animate-rise: rise 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  --animate-shutter-flash: shutter-flash 0.35s ease-out;
+  --animate-bracket-pulse: bracket-pulse 1.6s ease-in-out infinite;
+}
+
+:root {
+  --radius: 1rem;
+
+  /* Brand */
+  --kumkuma: oklch(0.53 0.207 22.3); /* #C8102E */
+  --turmeric: oklch(0.857 0.165 86.5); /* #FFC72C */
+  --maroon: oklch(0.373 0.141 20.5); /* #7A0C1E */
+  --marigold: oklch(0.735 0.161 58.8); /* #F28C28 */
+
+  --background: oklch(0.98 0.024 88.2); /* warm cream */
+  --foreground: oklch(0.241 0.027 34.6); /* ink */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.241 0.027 34.6);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.241 0.027 34.6);
+  --primary: var(--kumkuma);
+  --primary-foreground: oklch(0.99 0.01 88);
+  --secondary: var(--turmeric);
+  --secondary-foreground: var(--maroon);
+  --muted: oklch(0.95 0.03 85);
+  --muted-foreground: oklch(0.486 0.022 34.3); /* warm gray */
+  --accent: oklch(0.93 0.07 86);
+  --accent-foreground: var(--maroon);
+  --destructive: oklch(0.501 0.178 28.7);
+  --destructive-foreground: oklch(0.99 0.01 88);
+  --success: oklch(0.523 0.135 144.2);
+  --success-foreground: oklch(0.99 0.01 88);
+  --translit: oklch(0.46 0.13 22);
+  --layer-kannada: oklch(0.97 0.05 88);
+  --layer-translit: oklch(0.97 0.025 30);
+  --layer-english: oklch(0.985 0.008 85);
+  --viewfinder: oklch(0.16 0.02 30);
+  --viewfinder-foreground: oklch(0.98 0.01 88);
+  --border: oklch(0.9 0.04 80);
+  --input: oklch(0.88 0.04 80);
+  --ring: var(--kumkuma);
+
+  --gradient-hero: linear-gradient(135deg, var(--turmeric) 0%, var(--marigold) 55%, var(--kumkuma) 100%);
+  --gradient-scan: linear-gradient(160deg, var(--maroon) 0%, var(--kumkuma) 50%, var(--marigold) 100%);
+  --gradient-beam: linear-gradient(180deg, transparent, color-mix(in oklab, var(--turmeric) 85%, transparent), transparent);
+
+  --shadow-soft-value: 0 6px 20px -10px color-mix(in oklab, var(--maroon) 35%, transparent);
+  --shadow-lift-value: 0 16px 40px -18px color-mix(in oklab, var(--maroon) 55%, transparent);
+  --shadow-fab-value: 0 10px 24px -8px color-mix(in oklab, var(--kumkuma) 70%, transparent);
+
+  --chart-1: var(--kumkuma);
+  --chart-2: var(--turmeric);
+  --chart-3: var(--marigold);
+  --chart-4: var(--maroon);
+  --chart-5: oklch(0.523 0.135 144.2);
+  --sidebar: var(--background);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--accent-foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+
+  /* User-adjustable result text scale */
+  --kn-size: 1.5rem;
+  --en-size: 1.05rem;
+}
+
+:root[data-text-size="sm"] { --kn-size: 1.2rem; --en-size: 0.95rem; }
+:root[data-text-size="md"] { --kn-size: 1.5rem; --en-size: 1.05rem; }
+:root[data-text-size="lg"] { --kn-size: 1.8rem; --en-size: 1.2rem; }
+:root[data-text-size="xl"] { --kn-size: 2.1rem; --en-size: 1.35rem; }
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    overscroll-behavior-y: none;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+  :lang(kn) {
+    font-family: var(--font-kannada);
+    letter-spacing: normal;
+    line-height: 1.7;
+  }
+}
+
+@utility font-kannada {
+  font-family: var(--font-kannada);
+  letter-spacing: normal;
+  line-height: 1.7;
+}
+
+@utility text-kn-scaled {
+  font-size: var(--kn-size);
+}
+
+@utility text-en-scaled {
+  font-size: var(--en-size);
+}
+
+@utility bg-hero {
+  background-image: var(--gradient-hero);
+}
+
+@utility bg-scan {
+  background-image: var(--gradient-scan);
+}
+
+/* Mysore-style ornamental border strip: repeating diamonds and dots */
+@utility border-ornament {
+  background-image:
+    radial-gradient(circle at 50% 50%, var(--turmeric) 0 2.5px, transparent 3px),
+    linear-gradient(45deg, transparent 42%, var(--maroon) 42% 58%, transparent 58%),
+    linear-gradient(-45deg, transparent 42%, var(--maroon) 42% 58%, transparent 58%);
+  background-size: 16px 16px;
+  background-color: var(--kumkuma);
+}
+
+@utility safe-bottom {
+  padding-bottom: max(env(safe-area-inset-bottom), 0.5rem);
+}
+
+@utility safe-top {
+  padding-top: max(env(safe-area-inset-top), 0.75rem);
+}
+
+@utility scan-beam {
+  background-image: var(--gradient-beam);
+}
+
+@keyframes scan-beam {
+  0% { transform: translateY(-10%); }
+  50% { transform: translateY(1000%); }
+  100% { transform: translateY(-10%); }
+}
+
+@keyframes float-letter {
+  0%, 100% { transform: translateY(0) rotate(-4deg); opacity: 0.25; }
+  50% { transform: translateY(-18px) rotate(4deg); opacity: 0.9; }
+}
+
+@keyframes rise {
+  from { transform: translateY(14px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes shutter-flash {
+  from { opacity: 0.9; }
+  to { opacity: 0; }
+}
+
+@keyframes bracket-pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.03); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
